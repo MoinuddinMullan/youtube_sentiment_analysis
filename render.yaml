@@ -1,0 +1,50 @@
+# render.yaml — Render deployment config for Sentiview AI backend
+# Place this file at the project root (same level as backend/ and frontend/)
+
+services:
+  - type: web
+    name: sentiview-ai-backend
+    runtime: python
+    rootDir: backend                    # Render runs all commands from inside backend/
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    plan: free
+
+    envVars:
+      # Python version pin — prevents Render choosing an incompatible version
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+
+      # App settings
+      - key: APP_NAME
+        value: "Sentiview AI"
+      - key: ENVIRONMENT
+        value: "production"
+
+      # MongoDB — set the actual value in Render dashboard (not here, for security)
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGODB_DATABASE
+        value: "sentiview_db"
+
+      # ML model paths — relative to rootDir (backend/)
+      # These paths resolve to backend/ml/artifacts/*.joblib on the Render server
+      - key: MODEL_PATH
+        value: "ml/artifacts/sentiment_model.joblib"
+      - key: VECTORIZER_PATH
+        value: "ml/artifacts/tfidf_vectorizer.joblib"
+      - key: METADATA_PATH
+        value: "ml/artifacts/model_metadata.json"
+
+      # CORS — set the actual value in Render dashboard after Netlify URL is known
+      # Format: http://localhost:5173,https://YOUR-APP-NAME.netlify.app
+      - key: CORS_ORIGINS
+        sync: false
+
+      # Upload limits
+      - key: MAX_UPLOAD_SIZE_MB
+        value: "25"
+      - key: COMMENT_COLUMN
+        value: "comment_text"
+      - key: SENTIMENT_COLUMN
+        value: "label_sentiment"
