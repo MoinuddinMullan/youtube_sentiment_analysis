@@ -1,0 +1,94 @@
+.insights {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.header p {
+  color: var(--color-on-surface-variant);
+  font-size: 0.875rem;
+}
+
+.chartSection {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.chartHeader h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.chartWrapper {
+  height: 350px;
+}
+
+.center {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── KPI summary row ───────────────────────────────────────────────── */
+.kpiRow {
+  display              : grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap                  : 1.5rem;
+}
+
+.kpi {
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: center;
+  padding        : 1.75rem 1rem;
+  text-align     : center;
+  gap            : 0.5rem;
+}
+
+.kpiIcon {
+  display    : flex;
+  align-items: center;
+  color      : var(--blue, #3B82F6);
+  font-size  : 1.5rem;
+}
+
+.kpiIcon .material-symbols-outlined {
+  font-size: 2rem;
+}
+
+.kpiValue {
+  font-size  : 2rem;
+  font-weight: 700;
+  color      : var(--text-primary, #1E3A5F);
+  line-height: 1;
+}
+
+.kpiLabel {
+  font-size: 0.8125rem;
+  color    : var(--text-secondary, rgba(30,58,95,0.58));
+  font-weight: 500;
+}
+
+/* ── Responsive: stack KPI row on mobile ───────────────────────────── */
+@media (max-width: 640px) {
+  .kpiRow {
+    grid-template-columns: 1fr;
+  }
+}
+

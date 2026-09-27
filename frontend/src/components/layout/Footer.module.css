@@ -1,0 +1,7 @@
+.footer {
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--color-on-surface-variant);
+  font-size: 0.875rem;
+  margin-top: auto;
+}

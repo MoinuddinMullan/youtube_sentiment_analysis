@@ -1,0 +1,68 @@
+.card {
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--quick-action-bg-hover);
+  box-shadow: none;
+}
+
+.iconWrapper span {
+  font-size: 24px;
+}
+
+.content {
+  flex: 1;
+}
+
+.title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.valueRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-full);
+}
+
+.trend span {
+  font-size: 14px;
+}
+
+.positive {
+  color: var(--pos-tx);
+  background: var(--pos-bg);
+}
+
+.negative {
+  color: var(--neg-tx);
+  background: var(--neg-bg);
+}
